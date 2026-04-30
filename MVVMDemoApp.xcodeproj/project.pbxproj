@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A101 /* MVVMDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A201 /* MVVMDemoApp.swift */; };
+		A102 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A202 /* AppEnvironment.swift */; };
+		A103 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A203 /* User.swift */; };
+		A104 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A204 /* Banner.swift */; };
+		A105 /* DemoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A205 /* DemoAPI.swift */; };
+		A106 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A206 /* NetworkProvider.swift */; };
+		A107 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A207 /* UserStorage.swift */; };
+		A108 /* BannerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A208 /* BannerStorage.swift */; };
+		A109 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A209 /* UserRepository.swift */; };
+		A10A /* BannerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A /* BannerRepository.swift */; };
+		A10B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B /* UserViewModel.swift */; };
+		A10C /* BannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C /* BannerViewModel.swift */; };
+		A10D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20D /* ContentView.swift */; };
+		A110 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A210 /* ErrorStateView.swift */; };
+		A111 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A211 /* EmptyStateView.swift */; };
+		A112 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A212 /* AppError.swift */; };
+		A113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A213 /* Assets.xcassets */; };
+		A114 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A301 /* Moya */; };
+		A118 /* CachedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215 /* CachedEntry.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A201 /* MVVMDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMDemoApp.swift; sourceTree = "<group>"; };
+		A202 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		A203 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A204 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		A205 /* DemoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAPI.swift; sourceTree = "<group>"; };
+		A206 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		A207 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		A208 /* BannerStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerStorage.swift; sourceTree = "<group>"; };
+		A209 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		A20A /* BannerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerRepository.swift; sourceTree = "<group>"; };
+		A20B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		A20C /* BannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
+		A20D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A215 /* CachedEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedEntry.swift; sourceTree = "<group>"; };
+		A210 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		A211 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		A212 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		A213 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A214 /* MVVMDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A401 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A114 /* Moya in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A501 = {
+			isa = PBXGroup;
+			children = (
+				A502 /* MVVMDemoApp */,
+				A503 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A502 /* MVVMDemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				A504 /* App */,
+				A505 /* Models */,
+				A506 /* Networking */,
+				A507 /* Storage */,
+				A508 /* Repositories */,
+				A509 /* ViewModels */,
+				A50A /* Views */,
+				A50B /* Support */,
+				A50C /* Resources */,
+			);
+			path = MVVMDemoApp;
+			sourceTree = "<group>";
+		};
+		A503 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A214 /* MVVMDemoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A504 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A201 /* MVVMDemoApp.swift */,
+				A202 /* AppEnvironment.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A505 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A203 /* User.swift */,
+				A204 /* Banner.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A506 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A205 /* DemoAPI.swift */,
+				A206 /* NetworkProvider.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A507 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A207 /* UserStorage.swift */,
+				A208 /* BannerStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		A508 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A209 /* UserRepository.swift */,
+				A20A /* BannerRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		A509 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A20B /* UserViewModel.swift */,
+				A20C /* BannerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A50A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A20D /* ContentView.swift */,
+				A210 /* ErrorStateView.swift */,
+				A211 /* EmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A50B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A212 /* AppError.swift */,
+				A215 /* CachedEntry.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A50C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A213 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A001 /* MVVMDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A701 /* Build configuration list for PBXNativeTarget "MVVMDemoApp" */;
+			buildPhases = (
+				A402 /* Sources */,
+				A401 /* Frameworks */,
+				A403 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MVVMDemoApp;
+			packageProductDependencies = (
+				A301 /* Moya */,
+			);
+			productName = MVVMDemoApp;
+			productReference = A214 /* MVVMDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A600 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					A001 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+				};
+			};
+			buildConfigurationList = A700 /* Build configuration list for PBXProject "MVVMDemoApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = A501;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A800 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A503 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A001 /* MVVMDemoApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A113 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A402 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A101 /* MVVMDemoApp.swift in Sources */,
+				A102 /* AppEnvironment.swift in Sources */,
+				A103 /* User.swift in Sources */,
+				A104 /* Banner.swift in Sources */,
+				A105 /* DemoAPI.swift in Sources */,
+				A106 /* NetworkProvider.swift in Sources */,
+				A107 /* UserStorage.swift in Sources */,
+				A108 /* BannerStorage.swift in Sources */,
+				A109 /* UserRepository.swift in Sources */,
+				A10A /* BannerRepository.swift in Sources */,
+				A10B /* UserViewModel.swift in Sources */,
+				A10C /* BannerViewModel.swift in Sources */,
+				A10D /* ContentView.swift in Sources */,
+				A110 /* ErrorStateView.swift in Sources */,
+				A111 /* EmptyStateView.swift in Sources */,
+				A112 /* AppError.swift in Sources */,
+				A118 /* CachedEntry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S7ZK6TG8V8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.promise.MVVMDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S7ZK6TG8V8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.promise.MVVMDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A902 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+			};
+			name = Debug;
+		};
+		A903 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A700 /* Build configuration list for PBXProject "MVVMDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A902 /* Debug */,
+				A903 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A701 /* Build configuration list for PBXNativeTarget "MVVMDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A900 /* Debug */,
+				A901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A800 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A301 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A800 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A600 /* Project object */;
+}
