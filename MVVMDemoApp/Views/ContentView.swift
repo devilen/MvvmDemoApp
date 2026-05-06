@@ -5,8 +5,12 @@ struct ContentView: View {
     @StateObject private var bannerViewModel: BannerViewModel
 
     init(environment: AppEnvironment) {
-        _userViewModel = StateObject(wrappedValue: UserViewModel(repository: environment.userRepository))
-        _bannerViewModel = StateObject(wrappedValue: BannerViewModel(repository: environment.bannerRepository))
+        _userViewModel = StateObject(
+            wrappedValue: UserViewModel(repository: environment.userRepository, monitor: environment.monitor)
+        )
+        _bannerViewModel = StateObject(
+            wrappedValue: BannerViewModel(repository: environment.bannerRepository, monitor: environment.monitor)
+        )
     }
 
     var body: some View {

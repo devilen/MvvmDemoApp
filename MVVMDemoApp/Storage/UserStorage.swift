@@ -7,33 +7,22 @@ protocol UserStorageType {
 }
 
 final class UserStorage: UserStorageType {
-    private let store: UserDefaults
-    private let encoder = JSONEncoder()
-    private let decoder: JSONDecoder
-    private let key = "stored.user.profile"
+    private let cacheStore: FileCacheStore
+    private let filename = "user-profile-cache.json"
     private let ttl: TimeInterval
 
-    init(store: UserDefaults, ttl: TimeInterval = 1800) {
-        self.store = store
+    init(cacheStore: FileCacheStore, ttl: TimeInterval = 1800) {
+        self.cacheStore = cacheStore
         self.ttl = ttl
-        self.decoder = JSONDecoder()
-        self.encoder.dateEncodingStrategy = .iso8601
-        self.decoder.dateDecodingStrategy = .iso8601
     }
 
     func save(user: User) throws {
-        do {
-            let entry = CachedEntry(data: user, cachedAt: Date())
-            let data = try encoder.encode(entry)
-            store.set(data, forKey: key)
-        } catch {
-            throw AppError.storage(error.localizedDescription)
-        }
+        let entry = CachedEntry(data: user, cachedAt: Date())
+        try cacheStore.save(entry, filename: filename)
     }
 
     func fetchUser() -> User? {
-        guard let data = store.data(forKey: key),
-              let entry = try? decoder.decode(CachedEntry<User>.self, from: data),
+        guard let entry = cacheStore.load(CachedEntry<User>.self, filename: filename),
               !entry.isExpired(ttl: ttl) else {
             return nil
         }
@@ -41,8 +30,7 @@ final class UserStorage: UserStorageType {
     }
 
     func fetchStaleUser() -> User? {
-        guard let data = store.data(forKey: key),
-              let entry = try? decoder.decode(CachedEntry<User>.self, from: data) else {
+        guard let entry = cacheStore.load(CachedEntry<User>.self, filename: filename) else {
             return nil
         }
         return entry.data

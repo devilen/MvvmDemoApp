@@ -26,7 +26,21 @@
 		A113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A213 /* Assets.xcassets */; };
 		A114 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A301 /* Moya */; };
 		A118 /* CachedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215 /* CachedEntry.swift */; };
+		A119 /* FileCacheStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A216 /* FileCacheStore.swift */; };
+		B101 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201 /* RepositoryTests.swift */; };
+		B102 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202 /* ViewModelTests.swift */; };
+		B680121B2FAB266B007D86E6 /* AppMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B680121A2FAB266B007D86E6 /* AppMonitoring.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B301 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A600 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A001;
+			remoteInfo = MVVMDemoApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A201 /* MVVMDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMDemoApp.swift; sourceTree = "<group>"; };
@@ -42,12 +56,17 @@
 		A20B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		A20C /* BannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
 		A20D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A215 /* CachedEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedEntry.swift; sourceTree = "<group>"; };
 		A210 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 		A211 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		A212 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		A213 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A214 /* MVVMDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A215 /* CachedEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedEntry.swift; sourceTree = "<group>"; };
+		A216 /* FileCacheStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCacheStore.swift; sourceTree = "<group>"; };
+		B201 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		B202 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		B214 /* MVVMDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B680121A2FAB266B007D86E6 /* AppMonitoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMonitoring.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +78,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B401 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				A502 /* MVVMDemoApp */,
+				B502 /* MVVMDemoAppTests */,
 				A503 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				A214 /* MVVMDemoApp.app */,
+				B214 /* MVVMDemoAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +152,7 @@
 		A507 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				A216 /* FileCacheStore.swift */,
 				A207 /* UserStorage.swift */,
 				A208 /* BannerStorage.swift */,
 			);
@@ -163,6 +192,7 @@
 			children = (
 				A212 /* AppError.swift */,
 				A215 /* CachedEntry.swift */,
+				B680121A2FAB266B007D86E6 /* AppMonitoring.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -173,6 +203,31 @@
 				A213 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B502 /* MVVMDemoAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				B503 /* Repositories */,
+				B504 /* ViewModels */,
+			);
+			path = MVVMDemoAppTests;
+			sourceTree = "<group>";
+		};
+		B503 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B201 /* RepositoryTests.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B504 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B202 /* ViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +253,26 @@
 			productReference = A214 /* MVVMDemoApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B001 /* MVVMDemoAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B701 /* Build configuration list for PBXNativeTarget "MVVMDemoAppTests" */;
+			buildPhases = (
+				B402 /* Sources */,
+				B401 /* Frameworks */,
+				B403 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B601 /* PBXTargetDependency */,
+			);
+			name = MVVMDemoAppTests;
+			packageProductDependencies = (
+			);
+			productName = MVVMDemoAppTests;
+			productReference = B214 /* MVVMDemoAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,6 +285,10 @@
 				TargetAttributes = {
 					A001 = {
 						CreatedOnToolsVersion = 26.4;
+					};
+					B001 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = A001;
 					};
 				};
 			};
@@ -232,6 +311,7 @@
 			projectRoot = "";
 			targets = (
 				A001 /* MVVMDemoApp */,
+				B001 /* MVVMDemoAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +325,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B403 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -253,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A101 /* MVVMDemoApp.swift in Sources */,
+				B680121B2FAB266B007D86E6 /* AppMonitoring.swift in Sources */,
 				A102 /* AppEnvironment.swift in Sources */,
 				A103 /* User.swift in Sources */,
 				A104 /* Banner.swift in Sources */,
@@ -269,10 +357,28 @@
 				A111 /* EmptyStateView.swift in Sources */,
 				A112 /* AppError.swift in Sources */,
 				A118 /* CachedEntry.swift in Sources */,
+				A119 /* FileCacheStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B402 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B101 /* RepositoryTests.swift in Sources */,
+				B102 /* ViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A001 /* MVVMDemoApp */;
+			targetProxy = B301 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A900 /* Debug */ = {
@@ -283,6 +389,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S7ZK6TG8V8;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -373,6 +480,54 @@
 			};
 			name = Release;
 		};
+		B900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S7ZK6TG8V8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.promise.MVVMDemoAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVMDemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MVVMDemoApp";
+			};
+			name = Debug;
+		};
+		B901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S7ZK6TG8V8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.promise.MVVMDemoAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVMDemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MVVMDemoApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -390,6 +545,15 @@
 			buildConfigurations = (
 				A900 /* Debug */,
 				A901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B701 /* Build configuration list for PBXNativeTarget "MVVMDemoAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B900 /* Debug */,
+				B901 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

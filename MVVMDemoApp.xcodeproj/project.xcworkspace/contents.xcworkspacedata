@@ -4,4 +4,16 @@
    <FileRef
       location = "self:">
    </FileRef>
+   <Group
+      location = "group:MVVMDemoAppTests"
+      name = "MVVMDemoAppTests">
+      <Group
+         location = "group:Repositories"
+         name = "Repositories">
+      </Group>
+      <Group
+         location = "group:ViewModels"
+         name = "ViewModels">
+      </Group>
+   </Group>
 </Workspace>

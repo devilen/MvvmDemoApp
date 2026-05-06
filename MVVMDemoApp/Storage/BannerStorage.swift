@@ -7,30 +7,22 @@ protocol BannerStorageType {
 }
 
 final class BannerStorage: BannerStorageType {
-    private let store: UserDefaults
-    private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
-    private let key = "stored.banner.list"
+    private let cacheStore: FileCacheStore
+    private let filename = "banner-list-cache.json"
     private let ttl: TimeInterval
 
-    init(store: UserDefaults, ttl: TimeInterval = 1800) {
-        self.store = store
+    init(cacheStore: FileCacheStore, ttl: TimeInterval = 1800) {
+        self.cacheStore = cacheStore
         self.ttl = ttl
     }
 
     func save(banners: [Banner]) throws {
-        do {
-            let entry = CachedEntry(data: banners, cachedAt: Date())
-            let data = try encoder.encode(entry)
-            store.set(data, forKey: key)
-        } catch {
-            throw AppError.storage(error.localizedDescription)
-        }
+        let entry = CachedEntry(data: banners, cachedAt: Date())
+        try cacheStore.save(entry, filename: filename)
     }
 
     func fetchBanners() -> [Banner] {
-        guard let data = store.data(forKey: key),
-              let entry = try? decoder.decode(CachedEntry<[Banner]>.self, from: data),
+        guard let entry = cacheStore.load(CachedEntry<[Banner]>.self, filename: filename),
               !entry.isExpired(ttl: ttl) else {
             return []
         }
@@ -38,8 +30,7 @@ final class BannerStorage: BannerStorageType {
     }
 
     func fetchStaleBanners() -> [Banner] {
-        guard let data = store.data(forKey: key),
-              let entry = try? decoder.decode(CachedEntry<[Banner]>.self, from: data) else {
+        guard let entry = cacheStore.load(CachedEntry<[Banner]>.self, filename: filename) else {
             return []
         }
         return entry.data

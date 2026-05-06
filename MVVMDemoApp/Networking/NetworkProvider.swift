@@ -8,41 +8,64 @@ protocol NetworkProviding {
 final class NetworkProvider: NetworkProviding {
     private let provider: MoyaProvider<DemoAPI>
     private let decoder: JSONDecoder
+    private let monitor: AppMonitoring
 
-    init(stubBehavior: @escaping MoyaProvider<DemoAPI>.StubClosure = MoyaProvider.immediatelyStub) {
+    init(
+        stubBehavior: @escaping MoyaProvider<DemoAPI>.StubClosure = MoyaProvider.immediatelyStub,
+        monitor: AppMonitoring = NoOpAppMonitoring.shared
+    ) {
         self.provider = MoyaProvider<DemoAPI>(stubClosure: stubBehavior)
         self.decoder = JSONDecoder()
         self.decoder.dateDecodingStrategy = .iso8601
+        self.monitor = monitor
     }
 
     func request<T: Decodable>(_ target: DemoAPI, type: T.Type) async throws -> T {
+        let span = monitor.beginSpan(
+            "network_request",
+            domain: .network,
+            metadata: [
+                "target": String(describing: target),
+                "responseType": String(describing: type)
+            ]
+        )
         let requestToken = RequestToken()
-        let response = try await withTaskCancellationHandler {
-            try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Response, Error>) in
-                guard !Swift.Task.isCancelled else {
-                    continuation.resume(throwing: CancellationError())
-                    return
-                }
-
-                let cancellable = provider.request(target) { result in
-                    switch result {
-                    case .success(let response):
-                        continuation.resume(returning: response)
-                    case .failure(let error):
-                        continuation.resume(throwing: error)
-                    }
-                }
-                requestToken.set(cancellable)
-            }
-        } onCancel: {
-            requestToken.cancel()
-        }
-
         do {
+            let response = try await withTaskCancellationHandler {
+                try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Response, Error>) in
+                    guard !Swift.Task.isCancelled else {
+                        continuation.resume(throwing: CancellationError())
+                        return
+                    }
+
+                    let cancellable = provider.request(target) { result in
+                        switch result {
+                        case .success(let response):
+                            continuation.resume(returning: response)
+                        case .failure(let error):
+                            continuation.resume(throwing: error)
+                        }
+                    }
+                    requestToken.set(cancellable)
+                }
+            } onCancel: {
+                requestToken.cancel()
+                monitor.log(
+                    .debug,
+                    domain: .network,
+                    message: "request cancelled",
+                    metadata: ["target": String(describing: target)]
+                )
+            }
+
             let filtered = try response.filterSuccessfulStatusCodes()
-            return try decoder.decode(T.self, from: filtered.data)
+            let decoded = try decoder.decode(T.self, from: filtered.data)
+            span.succeed(metadata: ["statusCode": "\(filtered.statusCode)"])
+            return decoded
         } catch {
-            throw Self.mapError(error)
+            let mappedError = Self.mapError(error)
+            span.fail(mappedError)
+            throw mappedError
         }
     }
 
